@@ -1,16 +1,25 @@
-<div ng-controller="LoginCtrl">
+<ng-include src="'includes/header.html'"></ng-include>
+<div class="pagestart" ng-controller="LoginCtrl">
 	
 	<div class="container">
-		<form ng-submit="login()" class="form-signin" role="form">
+		<form ng-submit="login()" ng-show="statusDeck" class="form-signin" role="form">
 			<h2 class="form-signin-heading">Please Login</h2>
-			<input type="email" class="form-control" placeholder="Email address" value="abc@gmail.com">
-			<input type="password" class="form-control" placeholder="Password" value="12345678">
+			<div ng-show="message" class="message-dialog">
+				</i><i class="fa fa-times"></i>
+				<span class="message-text">The password is not correct!</span>
+			</div>
+			<input type="email" class="form-control" placeholder="Email address" value="" ng-model="user.email" required>
+			<input type="password" class="form-control" placeholder="Password" ng-model="user.pass" required>
 			<div class="checkbox">
 				<label>
 					<input type="checkbox" value="remember-me"> Remember Me
 				</label>
 			</div>
 			<button class="btn btn-lg btn-block" type="submit">Login</button>
+			<a href="" ng-click="hideDeck('forgotpass')">Forgot your password?</a>
 		</form>
+		<div ng-show="activeTab == 'forgotpass'" class="each-card-det">
+	        <ng-include src="'includes/forgotpass.html'"></ng-include>
+	    </div>
 	</div>
 </div>

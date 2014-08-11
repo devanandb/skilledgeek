@@ -1,10 +1,38 @@
-<div class="col-md-12" ng-controller="SignupCtrl">
+<ng-include src="'includes/header.html'"></ng-include>
+
+<div class="pagestart" ng-controller="SignupCtrl">
 	
 	<div class="container">
-            <div class="page-header">
-                <h1>Signup page</h1>
-            </div>
-            <p class="lead">For signing up a user</p>
+        <div class="page-header">
+            <h1>Signup !</h1>
+        </div>
+        <div class="col-lg-6 manual-signup">
+	        <form name="signupform" ng-submit="createUser(signupform.$valid)">
+	        	<label for="fname" class="control-label">First Name</label>
+	        	<input type="text" name="fname" ng-model="user.fname" class="form-control"  required placeholder="Enter your first name here">
+	        	<label for="lname" class="control-label">Last Name</label>
+	        	<input type="text" name="lname" ng-model="user.lname" class="form-control"  required placeholder="Enter your last name here">
+	        	<label for="email" class="control-label">Email Address</label>
+	        	<input type="email" name="email" ng-model="user.email" class="form-control"  required placeholder="Enter your email address here">
+	        	<label for="password" class="control-label">Enter Password</label>
+	        	<input type="password" name="password" ng-model="user.password" class="form-control"  required placeholder="Create password for skilledgeek">
+	        	<label for="cpassword" class="control-label">Confirm Password</label>
+	        	<input type="password" name="cpassword" ng-model="user.cpassword" class="form-control"  required placeholder="Confirm your password">
+	        	<label for="dob" class="control-label">Date Of Birth</label>
+	        	<input type="text" name="dob" ng-model="user.dob" class="form-control"  required placeholder="Enter your date of birth in dd/mm/yyyy format">
+	        	<label for="country" class="control-label">Country</label>
+	        	<input type="text" name="country" ng-model="user.country" class="form-control"  required placeholder="Enter your country here">
+	        	<label for="phone" class="control-label">Phone Number</label>
+	        	<input type="text" name="phone" ng-model="phone" class="form-control"  required placeholder="Enter your phone number here">
+	        	<button type="submit" class="btn btn-primary">Sign Up</button>
+	        </form>
+        </div>
+        <div class="col-lg-6 auto-signup">
+        	<h3>Signup Using</h3><br>
+        	<a href=""><img title="Linkedin" src="../images/linkedin.png" alt=""></a>
+        	<a href=""><img title="Google+" src="../images/google.png" alt=""></a>
+        	<a href=""><img title="Facebook" src="../images/facebook.png" alt=""></a>
+        </div>
     </div>
 
 </div>
